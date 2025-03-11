@@ -2,10 +2,10 @@
 const User=require('../Models/userSchema')
 
 
-exports.logoutUser=(req,res)=>{
+exports.logoutUser= async(req,res)=>{
 
     try {
-        
+       
         res.cookie("token",null)
         res.status(200).json({
             success:true,

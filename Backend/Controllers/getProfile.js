@@ -5,17 +5,25 @@ const User=require('../Models/userSchema')
 exports.getProfile= async(req,res)=>{
 
   try {
-    const foundUser=req.User
 
+    // const {id}=req.params
+    // const response=await User.findById(id)
+    
+    const foundUser=req.User
+    
     if(!foundUser){
         
-        throw new Error("User does not exist")
-    }
+      throw new Error("User does not exist")
+  }
+
 
     res.status(200).json({
-        success:true,
-        data:foundUser
+      success:true,
+      data:foundUser,
+      message:"user found"
     })
+    
+
   } catch (error) {
     
     res.status(400).json({
