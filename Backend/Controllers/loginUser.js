@@ -27,7 +27,7 @@ exports.loginUser=async(req,res)=>{
         if(!foundUser){
             return res.status(400).json({
                 success:false,
-                message:"first SignUP"
+                message:"No User Found first SIGNUP"
             })
         }
 
@@ -48,12 +48,20 @@ exports.loginUser=async(req,res)=>{
                 success:true,
                 message:"user logged in Successfully"
             })
+        }else{
+            // password not matched
+
+            return res.status(400).json({
+                success:false,
+                message:"password not match"
+            })
         }
+
     } catch (error) {
         
         return res.status(400).json({
             success:false,
-            message:"someting error while login User",
+            message:"Incorrect Password",
             data:error.message
         })
     }
